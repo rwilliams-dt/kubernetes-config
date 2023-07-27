@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-exporter
+  labels:
+    app: mongodb-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb-exporter
+  template:
+    metadata:
+      labels:
+        app: mongodb-exporter
+      annotations:
+        metrics.dynatrace.com/scrape: 'true'
+        metrics.dynatrace.com/port: '9216'
+        metrics.dynatrace.com/secure: 'false'
+    spec:
+      containers:
+        - name: mongodb-exporter
+          env:
+            - name: MONGODB_URI
+              value: mongodb://fleetman-mongodb:27017
+          image: "percona/mongodb_exporter:0.39.0"
+          imagePullPolicy: IfNotPresent
+          args:
+            - --web.listen-address=:9216
+            - --collect-all
+          ports:
+            - name: metrics
+              containerPort: 9216
+              protocol: TCP
+      terminationGracePeriodSeconds: 30
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-exporter
+  labels:
+    app: mongodb-exporter
+spec:
+  selector:
+    app: mongodb-exporter
+  ports:
+    - port: 9216
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+  type: ClusterIP
