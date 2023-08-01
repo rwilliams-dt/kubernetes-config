@@ -1,4 +1,4 @@
-# Prometheus MongoDB Metrics with MongoDB Exporter
+# Prometheus Exporters and MongoDB
 
 1.	Login to GCP:
    
