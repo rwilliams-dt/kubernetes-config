@@ -4,11 +4,23 @@ This is the MongoDB exporter implementation that handles ALL metrics exposed by 
 Currently, these metric sources are implemented:
 
 $collStats
+
 $indexStats
+
 getDiagnosticData
+
 replSetGetStatus
+
 serverStatus
 
+Links:
+
+List of all exporters: https://prometheus.io/docs/instrumenting/exporters/
+
+MongoDB Exporter: https://github.com/percona/mongodb_exporter
+
+
+Steps:
 
 1.	Login to GCP:
    
