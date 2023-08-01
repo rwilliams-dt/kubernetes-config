@@ -15,19 +15,18 @@ spec:
       containers:
       - name: mongodb
         image: mongo
-      #   volumeMounts:
-      #     - name: mongo-persistent-storage
-      #       mountPath: /data/db
-      # volumes:
-      #   - name: mongo-persistent-storage
-      #     # pointer to the configuration of HOW we want the mount to be implemented
-      #     persistentVolumeClaim:
-      #       claimName: mongo-pvc
+        resources:
+          requests:
+            cpu: .25
+            memory: 500M
+          limits:
+            cpu: .5
+            memory: 1G
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: mongodb
+  name: mongodb-service
 spec:
   selector:
     app: mongodb
