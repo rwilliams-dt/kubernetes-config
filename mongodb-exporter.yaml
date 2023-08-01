@@ -22,7 +22,7 @@ spec:
         - name: mongodb-exporter
           env:
             - name: MONGODB_URI
-              value: mongodb://fleetman-mongodb:27017
+              value: mongodb://mongodb-service:27017
           image: "percona/mongodb_exporter:0.39.0"
           imagePullPolicy: IfNotPresent
           args:
@@ -32,7 +32,13 @@ spec:
             - name: metrics
               containerPort: 9216
               protocol: TCP
-      terminationGracePeriodSeconds: 30
+          resources:
+            requests:
+              cpu: .25
+              memory: 500M
+            limits:
+              cpu: .5
+              memory: 1G
 
 ---
 apiVersion: v1
