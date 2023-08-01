@@ -1,26 +1,25 @@
 # Prometheus Exporters and MongoDB
 This is the MongoDB exporter implementation that handles ALL metrics exposed by MongoDB monitoring commands. This new implementation loops over all the fields exposed in diagnostic commands and tries to get data from them.
 
-Currently, these metric sources are implemented:
-
-$collStats
-
-$indexStats
-
-getDiagnosticData
-
-replSetGetStatus
-
-serverStatus
-
-Links:
+## Links:
 
 List of all exporters: https://prometheus.io/docs/instrumenting/exporters/
 
 MongoDB Exporter: https://github.com/percona/mongodb_exporter
 
+## Collected metrics:
+$collStats - Storage stats
 
-Steps:
+$indexStats - Returns statistics regarding the use of each index for the collection. 
+
+$getDiagnosticData - Diagnostic data
+
+$replSetGetStatus - Returns the status of the replica set from the point of view of the server that processed the command.
+
+$serverStatus - Command returns a document that provides an overview of the database's state. 
+
+
+## Steps:
 
 1.	Login to GCP:
    
