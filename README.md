@@ -61,15 +61,8 @@ $serverStatus - Command returns a document that provides an overview of the data
   	
 9.	Enable Kubernetes features in Dynatrace UI:
 
-     Monitor namespaces, services, workspaces, and pods
-  	
-  	 Monitor persistent volume claims
-  	
-  	 Monitor annotated Prometheus exporters
-  	
-  	 Monitor workload and node resource metrics
-  	
-  	 Monitor events
+
+  	gcloud container clusters delete <cluster-name>
   	 
 
 11.	Check Metrics in Dynatrace
