@@ -9,7 +9,7 @@
   "dashboardMetadata": {
     "name": "Kubernetes Monitoring Statistics",
     "shared": true,
-    "owner": "robert.williams@dynatrace.com",
+    "owner": "myemail.com",
     "tags": [
       "Api server",
       "Diagnostics",
