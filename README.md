@@ -55,7 +55,7 @@ $serverStatus - Command returns a document that provides an overview of the data
   	
 8.	Verify MongoDB metrics:
 
-  	 kubectl run mycurlpod --image=curlimages/curl -i -t – sh
+  	 kubectl run mycurlpod --image=curlimages/curl -i -t -- sh
   	
      curl http://<mongodb-exporter.ip>:9216/metrics | grep mongo
   	
